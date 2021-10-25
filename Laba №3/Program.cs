@@ -7,7 +7,8 @@ namespace Laba__3
         static void Main(string[] args)
         {
             Set<int> set = new Set<int>() { 1, 2, 3, 4 };
-            Console.WriteLine($"{set.Me.Id} {set.Me.Name} {set.Me.Company} {((Set<int>.Owner.Date)set).DateOfSeptember}");
+            Console.WriteLine($"{set.Me.Id} {set.Me.Name} {set.Me.Company} {set.date.DateOfCreate}");
+            Set<int>.Owner.getList(set);
             Set<int> set2 = new Set<int>() { 4, 5, 6, 7 };
             Set<int> set3 = new Set<int>() { 3, 4, 5, 6 };
             Console.Write("Добавление элемента: ");
@@ -38,12 +39,14 @@ namespace Laba__3
             }
             Console.WriteLine($"Count: {StaticOperation.Count(set)}\nSum: {StaticOperation.Sum(set)}\nRange: {StaticOperation.Range(set)}");
             Set<string> set4 = new Set<string>() { "Ren4L", "Dantey", "MSTkrut2"};
-            var str = StaticOperation.Str(set4);
-            Console.Write("Str: ");
-            foreach (var elem in str)
+            string NewSet = "";
+            foreach(var el in set4)
             {
-                Console.Write($"{elem} ");
+                NewSet += el + " ";
             }
+            string str = NewSet.Str();
+            Console.Write($"Str: {str}");
+            
         }
     }
 }

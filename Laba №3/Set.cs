@@ -27,13 +27,10 @@ namespace Laba__3
             return set.Count();
         }
 
-        public static Set<string> Str(Set<string> str)
+        public static string Str(this string str)
         {
-            var NewSet = new Set<string>();
-            foreach (var elem in str)
-            {
-                NewSet.Add(elem+",");
-            }
+            var NewSet = str.Replace(' ',',');
+            
             return NewSet;
         }
 
@@ -41,7 +38,9 @@ namespace Laba__3
     class Set<T> : IEnumerable<T>
     {
         public Owner Me = new Owner(1, "Ren4L", "BSTU");
+        public Date date = new Date();
         private readonly List<T> _list = new List<T>();
+        public static int Ow = 123;
         public int Count => _list.Count;
         public int Size() => _list.Count;
         public bool Has(T item) => _list.Contains(item);
@@ -161,26 +160,21 @@ namespace Laba__3
             public string Name { get; set; }
             public string Company { get; set; }
 
-            public class Date
-            {
-                public DateTime DateOfSeptember;
-                public Date(int day)
-                {
-                    DateOfSeptember = new DateTime(2021, 10, 24);
-                }
-
-            }
-
             public Owner(int id, string name, string company)
             {
                 Id = id;
                 Name = name;
                 Company = company;
             }
+            public static void getList(Set<T> set)
+            {
+                Console.WriteLine(set.Count());
+            }
         }
-        public static explicit operator Owner.Date(Set<T> set)
+
+        public class Date
         {
-            return new Owner.Date(set.Size());
+            public DateTime DateOfCreate = DateTime.Now;
         }
 
 
